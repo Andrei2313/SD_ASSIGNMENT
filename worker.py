@@ -35,6 +35,7 @@ def run_worker(port, base_dir):
             conn.sendall(response.encode('utf-8'))
 
 if __name__ == '__main__':
+
     parser = argparse.ArgumentParser(description="Worker for file search")
     parser.add_argument("--dir", required=True, help="Directory to search")
     parser.add_argument("--port", type=int, required=True, help="Port to listen on")

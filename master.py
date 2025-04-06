@@ -85,6 +85,7 @@ if __name__ == '__main__':
                 print("No matching files found.")
             print()
     except KeyboardInterrupt:
+
         print("\nExiting...")
     finally:
         master.stop_workers()

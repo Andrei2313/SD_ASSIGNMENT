@@ -7,6 +7,7 @@ app = Flask(__name__)
 workers_config = [
     {'directory': os.getcwd(), 'port': 5001},
     {'directory': os.path.join(os.getcwd(), "C:\\test"), 'port': 5002}
+
 ]
 master = FileSearchMaster(workers_config)
 @app.route('/')
