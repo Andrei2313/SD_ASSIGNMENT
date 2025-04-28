@@ -83,6 +83,7 @@ def view_file(file_id):
 
 if __name__ == '__main__':
     try:
+
         app.run(debug=True)
     finally:
         db_connector.close()

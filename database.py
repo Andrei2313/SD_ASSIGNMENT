@@ -41,4 +41,5 @@ class PostgresDBConnector:
     def close(self):
         if self.conn:
             self.conn.close()
+
             print("DB connection closed.")

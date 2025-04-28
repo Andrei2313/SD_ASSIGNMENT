@@ -12,6 +12,7 @@ class SearchLogger(SearchObserver):
             (query_text,)
         )
 
+
 def get_recent_searches(db, limit=5):
     rows = db.fetch_query("""
       SELECT query_text

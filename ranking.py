@@ -2,6 +2,7 @@ import os
 import math
 import time
 
+
 def compute_ranking(file_path):
     depth = len(os.path.abspath(file_path).split(os.sep)) or 1
     try:

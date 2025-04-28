@@ -29,6 +29,7 @@ class TextFileSearch:
         )
         return rows[0] if rows else None
 
+
 def parse_advanced_query(q):
     qualifiers = {'path': [], 'content': [], 'name': [], 'ext': []}
     for tok in q.split():
