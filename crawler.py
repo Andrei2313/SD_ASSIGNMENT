@@ -1,4 +1,5 @@
 import os
+
 from config import TEXT_EXTENSIONS, REPORT_FORMAT
 from ranking import compute_ranking
 
@@ -25,10 +26,20 @@ class FileCrawler:
                 self._upsert_file(fn, abs_path, ext, content, score)
                 report.append((fn, ext, abs_path, score))
                 count += 1
+
         print(f"Indexed {count} files.")
+
         if REPORT_FORMAT == 'detailed':
             for fn, ext, path, sc in report:
                 print(f"{fn} ({ext}) @ {path} → {sc:.2f}")
+
+        elif REPORT_FORMAT == 'average':
+            if report:
+                avg_score = sum(sc for _, _, _, sc in report) / len(report)
+                print(f"Average ranking score: {avg_score:.2f}")
+            else:
+                print("No files to compute average ranking.")
+
 
     def _upsert_file(self, filename, filepath, extension, content, ranking_score):
         sql = """

@@ -1,6 +1,6 @@
 import os
 
-REPORT_FORMAT = os.getenv('INDEX_REPORT_FORMAT', 'simple').lower()
+REPORT_FORMAT = 'detailed'
 
 TEXT_EXTENSIONS = {
     '.txt', '.md', '.py', '.java', '.c', '.cpp',
