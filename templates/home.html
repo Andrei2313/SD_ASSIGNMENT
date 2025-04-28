@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>File Search</title></head>
+<body>
+  <h1>Search Files</h1>
+  <form method="get" action="/search">
+    <p>
+      <label>Advanced Query:</label>
+      <input type="text" name="q" size="40" >
+    </p>
+    <p>
+      <label>Name:</label>
+      <input type="text" name="name_query">
+      <label>Content:</label>
+      <input type="text" name="content_query">
+      <label>Ext.:</label>
+      <input type="text" name="ext_query" size="6">
+    </p>
+    <button type="submit">Search</button>
+  </form>
+
+  {% if suggestions %}
+    <h2>Recent Searches:</h2>
+    <ul>{% for s in suggestions %}<li>{{ s }}</li>{% endfor %}</ul>
+  {% endif %}
+
+  {% if results is defined %}
+    <h2>Results:</h2>
+    {% if results %}
+      <ul>
+      {% for id, fn, path in results %}
+        <li>
+          <strong>{{ fn }}</strong> — {{ path }}<br>
+          <a href="/view/{{ id }}">View Full Content</a>
+        </li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>No matching files found.</p>
+    {% endif %}
+  {% endif %}
+</body>
+</html>
